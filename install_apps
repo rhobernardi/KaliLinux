@@ -35,13 +35,12 @@ sudo wget https://telegram.org/dl/desktop/linux
 sudo tar -xf *
 sudo mv Telegram/ /opt/
 /opt/Telegram/Telegram &
-rm ~/Downloads/*
 
 #== Numix Circle
 cd ~/Downloads
 sudo git clone https://github.com/numixproject/numix-icon-theme-circle
 sudo mv numix-icon-theme-circle/Numix-Circle /usr/share/icons/
-rm -rf ~/Downloads/*
+rm -rf ~/Downloads/numix-icon-theme-circle
 
 #== Spotify
 sudo apt-get update
@@ -79,4 +78,3 @@ wget https://www.torproject.org/dist/torbrowser/6.0.7/tor-browser-linux64-6.0.7_
 tar -xvJf tor-browser-linux64-6.0.7_en_US.tar.xz
 sudo mv tor-browser_en_US /opt/
 /opt/tor-browser_en_US/start-tor-browser.desktop
-sudo rm -rf ~/Downloads/*
