@@ -1,0 +1,82 @@
+#!/bin/bash
+
+#== Backgrouds and Terminal Style
+cd ./backgrounds/
+cp -a ./* ~/Pictures/
+cp ./.bashrc ~/.bashrc
+
+#== PPA Repository
+cd ~/Downloads
+sudo wget http://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
+sudo cp add-apt-repository.sh.txt /usr/sbin/add-apt-repository
+chmod 777 /usr/sbin/add-apt-repository
+chown root:root /usr/sbin/add-apt-repository
+rm ~/Downloads/*
+
+#== Terminator
+sudo add-apt-repository ppa:gnome-terminator
+sudo apt-get update
+sudo apt-get install terminator
+sudo terminator &
+
+#== Bridge Utils
+sudo apt-get install bridge-utils
+
+#== Sublime Text
+cd ~/Downloads/
+sudo wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
+sudo dpkg -i *
+subl &
+rm ~/Downloads/*
+
+#== Telegram
+cd ~/Downloads
+sudo wget https://telegram.org/dl/desktop/linux
+sudo tar -xf *
+sudo mv Telegram/ /opt/
+/opt/Telegram/Telegram &
+rm ~/Downloads/*
+
+#== Numix Circle
+cd ~/Downloads
+sudo git clone https://github.com/numixproject/numix-icon-theme-circle
+sudo mv numix-icon-theme-circle/Numix-Circle /usr/share/icons/
+rm -rf ~/Downloads/*
+
+#== Spotify
+sudo apt-get update
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install spotify-client
+spotify &
+
+#== Alarm Clock
+sudo apt-get update
+sudo apt-get install alarm-clock-applet wmctrl xautomation
+alarm-clock-applet &
+
+#== Spotify Rise
+cd ~/Downloads
+sudo wget -O spotify-rise https://raw.githubusercontent.com/gcushen/spotify-rise/master/spotify-rise
+mv spotify-rise /usr/bin/
+
+#== OpenGL 5.4
+sudo apt-get update
+sudo apt-get install libgl1-mesa-dev
+sudo apt-get install libglew1.5-dev freeglut3-dev libglm-dev
+glxinfo | grep OpenGL
+
+#== Enable sound
+apt-get update
+apt-get install libfftw3-single3
+systemctl --user enable pulseaudio && reboot
+
+#== Tor
+cd ~/Downloads
+wget https://www.torproject.org/dist/torbrowser/6.0.7/tor-browser-linux64-6.0.7_en-US.tar.xz
+tar -xvJf tor-browser-linux64-6.0.7_en_US.tar.xz
+sudo mv tor-browser_en_US /opt/
+/opt/tor-browser_en_US/start-tor-browser.desktop
+sudo rm -rf ~/Downloads/*
