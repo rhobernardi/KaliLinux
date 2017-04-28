@@ -58,6 +58,7 @@ alarm-clock-applet &
 
 #== Spotify Rise
 cd ~/Downloads
+sudo chmod 755 spotify-rise
 sudo wget -O spotify-rise https://raw.githubusercontent.com/gcushen/spotify-rise/master/spotify-rise
 mv spotify-rise /usr/bin/
 
