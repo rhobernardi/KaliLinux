@@ -5,6 +5,11 @@ cd ./backgrounds/
 cp -a ./* ~/Pictures/
 cp ./.bashrc ~/.bashrc
 
+#== Enable Bluetooth
+lsmod | grep blue
+systemctl enable bluetooth.service
+systemctl start bluetooth.service
+
 #== PPA Repository
 cd ~/Downloads
 sudo wget http://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
