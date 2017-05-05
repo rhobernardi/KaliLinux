@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #== Backgrouds and Bash Style
 cd ./backgrounds/
 cp -a ./* ~/Pictures/
