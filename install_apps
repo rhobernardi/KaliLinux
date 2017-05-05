@@ -27,6 +27,14 @@ sudo terminator &
 #== Bridge Utils
 sudo apt-get install bridge-utils
 
+#== Brackets
+cd ~/Downloads/
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u5_amd64.deb
+sudo wget https://github.com/adobe/brackets/releases/download/release-1.9/Brackets.Release.1.9.64-bit.deb
+dpkg -i libgcrypt11_1.5.0-5+deb7u5_amd64.deb
+dpkg -i Brackets.Release.1.9.64-bit.deb
+rm ~/Downloads/*
+
 #== Sublime Text
 cd ~/Downloads/
 sudo wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
