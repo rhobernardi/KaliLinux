@@ -1,14 +1,20 @@
 #!/bin/bash
 
+#if [[ $1 == "-h" ||  ]]; then
+#	echo "usage: $0 [OPTIONS] [APP_INDEX]"
+#fi
+
 
 #== Backgrouds and Bash Style
-cd ./backgrounds/
-unzip wallpapers.zip
-mkdir ~/Pictures/wallpapers/
-mv ./*.jpg ./*.svg ./*.png ~/Pictures/wallpapers/
-rm ./*.jpg ./*.svg ./*.png
-cd ../
-cp ./.bashrc ~/.bashrc
+#if [[ $# == 1 && ]]; then
+	cd ./backgrounds/
+	unzip wallpapers.zip
+	mkdir ~/Pictures/wallpapers/
+	mv ./*.jpg ./*.svg ./*.png ~/Pictures/wallpapers/
+	rm ./*.jpg ./*.svg ./*.png
+	cd ../
+	cp ./.bashrc ~/.bashrc
+#fi
 
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
