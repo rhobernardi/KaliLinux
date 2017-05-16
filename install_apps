@@ -1,50 +1,80 @@
 #!/bin/bash
 
-if [[ $1 == "-h" || $1 == "--help" ]]; then
-
-	echo "usage: $0"
-	echo "After this, follow the instructions in your screen."
-
-else
-
-apt-get install figlet
+apt-get -q=2 install figlet
 clear
 figlet "EASY APP INSTALL"
 echo ""
 
+if [[ [$1 == "-h" || $1 == "--help"] || [$1 != "-h" && $1 != "--help" && $1 != "-s" && $1 != "--select" && $1 != "-a" && $1 != "--all"] ]]; then
+
+	echo "usage: $0 [OPTION]"
+	echo ""
+	echo ""
+	echo "OPTIONS: "
+	echo ""
+	echo "-s, --select		Select what to install."
+	echo "-a, --all 		Install all apps."
+	echo ""
+
+else
+
+	FLAG=1
+	key="y"
+
+	if [[ $1 == "-s" || $1 == "--select" ]]; then
+		FLAG=0
+	else
+		FLAG=1
+	fi
 
 #== Backgrouds
-	echo ""
-	echo "Install BACKGROUNDS? (Y/n) "
-	read key
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install BACKGROUNDS? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
 		cd ./backgrounds/
 		unzip wallpapers.zip
 		mkdir ~/Pictures/wallpapers/
-		mv ./*.jpg ./*.svg ./*.png ~/Pictures/wallpapers/
-		rm ./*.jpg ./*.svg ./*.png
+		mv *.jpg *.svg *.png ~/Pictures/wallpapers/
+		rm *.jpg *.svg *.png
 		cd ../
 
 	fi
 
 #== Prompt Style
-	echo ""
-	echo "Apply PROMPT STYLE? (Y/n) "
-	read key
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Apply PROMPT STYLE? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 	
 		cp ./.bashrc ~/.bashrc
+		echo ""
+		echo "Prompt setted."
+		echo ""
 
 	fi
 
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
-	echo ""
-	echo "Install CATALYST AMD RADEON HD 7730M? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install CATALYST AMD RADEON HD 7730M? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -58,9 +88,14 @@ echo ""
 	fi
 
 #== Enable Bluetooth
-	echo ""
-	echo "Enable BLUETOOTH? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Enable BLUETOOTH? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -71,9 +106,14 @@ echo ""
 	fi
 
 #== PPA Repository
-	echo ""
-	echo "Install PPA REPOSITORY? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install PPA REPOSITORY? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -87,9 +127,14 @@ echo ""
 	fi
 
 #== Terminator
-	echo ""
-	echo "Install TERMINATOR? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install TERMINATOR? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -101,9 +146,14 @@ echo ""
 	fi
 
 #== Bridge Utils
-	echo ""
-	echo "Install BRIDGE UTILS? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install BRIDGE UTILS? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -112,9 +162,14 @@ echo ""
 	fi
 
 #== Brackets
-	echo ""
-	echo "Install BRACKETS? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install BRACKETS? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -128,9 +183,14 @@ echo ""
 	fi
 
 #== Sublime Text
-	echo ""
-	echo "Install SUBLIME TEXT? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install SUBLIME TEXT? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -143,9 +203,14 @@ echo ""
 	fi
 
 #== Telegram
-	echo ""
-	echo "Install TELEGRAM? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install TELEGRAM? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -158,9 +223,14 @@ echo ""
 	fi
 
 #== Numix Circle
-	echo ""
-	echo "Install NUMIX CIRCLE? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install NUMIX CIRCLE? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -172,9 +242,14 @@ echo ""
 	fi
 
 #== Spotify
-	echo ""
-	echo "Install SPOTIFY? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install SPOTIFY? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -189,9 +264,14 @@ echo ""
 	fi
 
 #== Alarm Clock
-	echo ""
-	echo "Install ALARM CLOCK? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install ALARM CLOCK? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -202,9 +282,14 @@ echo ""
 	fi
 
 #== Spotify Rise
-	echo ""
-	echo "Install SPOTIFY-RISE? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install SPOTIFY-RISE? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -216,9 +301,14 @@ echo ""
 	fi
 
 #== OpenGL 5.4
-	echo ""
-	echo "Install OPENGL 5.4? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install OPENGL 5.4? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -230,9 +320,14 @@ echo ""
 	fi
 
 #== Enable sound
-	echo ""
-	echo "Install PULSEAUDIO SOUND? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install PULSEAUDIO SOUND? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
@@ -243,9 +338,14 @@ echo ""
 	fi
 
 #== Tor Browser
-	echo ""
-	echo "Install TOR BROWSER? (Y/n) "
-	read key
+	
+	if [[ $FLAG == 0 ]]; then
+		
+		echo ""
+		echo "Install TOR BROWSER? (Y/n) "
+		read key
+
+	fi
 
 	if [[ $key != "n" && $key != "N" ]]; then
 		
