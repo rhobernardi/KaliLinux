@@ -1,117 +1,272 @@
 #!/bin/bash
 
 if [[ $1 == "-h" || $1 == "--help" ]]; then
-	echo "usage: $0 [OPTIONS] [APP_INDEX]"
+
+	echo "usage: $0"
+	echo "After this, follow the instructions in your screen."
 
 else
-	apps
-fi
 
-apps()
-{
-#== Backgrouds and Bash Style
-	cd ./backgrounds/
-	unzip wallpapers.zip
-	mkdir ~/Pictures/wallpapers/
-	mv ./*.jpg ./*.svg ./*.png ~/Pictures/wallpapers/
-	rm ./*.jpg ./*.svg ./*.png
-	cd ../
-	cp ./.bashrc ~/.bashrc
+apt-get install figlet
+clear
+figlet "EASY APP INSTALL"
+echo ""
+
+
+#== Backgrouds
+	echo ""
+	echo "Install BACKGROUNDS? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ./backgrounds/
+		unzip wallpapers.zip
+		mkdir ~/Pictures/wallpapers/
+		mv ./*.jpg ./*.svg ./*.png ~/Pictures/wallpapers/
+		rm ./*.jpg ./*.svg ./*.png
+		cd ../
+
+	fi
+
+#== Prompt Style
+	echo ""
+	echo "Apply PROMPT STYLE? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+	
+		cp ./.bashrc ~/.bashrc
+
+	fi
 
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
-	cd /tmp
-	wget https://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.10-414273.tar.xz
-	tar -Jxvf amdgpu-pro-17.10-414273.tar.xz
-	cd amdgpu-pro-17.10-414273
-	./amdgpu-pro-install -y
-	usermod -a -G video root
+	echo ""
+	echo "Install CATALYST AMD RADEON HD 7730M? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd /tmp
+		wget https://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.10-414273.tar.xz
+		tar -Jxvf amdgpu-pro-17.10-414273.tar.xz
+		cd amdgpu-pro-17.10-414273
+		./amdgpu-pro-install -y
+		usermod -a -G video root
+
+	fi
 
 #== Enable Bluetooth
-	lsmod | grep blue
-	systemctl enable bluetooth.service
-	systemctl start bluetooth.service
+	echo ""
+	echo "Enable BLUETOOTH? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		lsmod | grep blue
+		systemctl enable bluetooth.service
+		systemctl start bluetooth.service
+
+	fi
 
 #== PPA Repository
-	cd ~/Downloads
-	sudo wget http://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
-	sudo cp add-apt-repository.sh.txt /usr/sbin/add-apt-repository
-	chmod 777 /usr/sbin/add-apt-repository
-	chown root:root /usr/sbin/add-apt-repository
-	rm ~/Downloads/*
+	echo ""
+	echo "Install PPA REPOSITORY? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads
+		wget http://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
+		cp add-apt-repository.sh.txt /usr/sbin/add-apt-repository
+		chmod 777 /usr/sbin/add-apt-repository
+		chown root:root /usr/sbin/add-apt-repository
+		rm ~/Downloads/*
+
+	fi
 
 #== Terminator
-	sudo add-apt-repository ppa:gnome-terminator
-	sudo apt-get update
-	sudo apt-get install terminator
-	sudo terminator &
+	echo ""
+	echo "Install TERMINATOR? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		add-apt-repository ppa:gnome-terminator
+		apt-get update
+		apt-get install terminator
+		terminator &
+
+	fi
 
 #== Bridge Utils
-	sudo apt-get install bridge-utils
+	echo ""
+	echo "Install BRIDGE UTILS? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		apt-get install bridge-utils
+
+	fi
 
 #== Brackets
-	cd ~/Downloads/
-	wget http://security.debian.org/debian-security/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u5_amd64.deb
-	wget https://github.com/adobe/brackets/releases/download/release-1.9/Brackets.Release.1.9.64-bit.deb
-	dpkg -i libgcrypt11_1.5.0-5+deb7u5_amd64.deb
-	dpkg -i Brackets.Release.1.9.64-bit.deb
-	rm ~/Downloads/*
+	echo ""
+	echo "Install BRACKETS? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads/
+		wget http://security.debian.org/debian-security/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u5_amd64.deb
+		wget https://github.com/adobe/brackets/releases/download/release-1.9/Brackets.Release.1.9.64-bit.deb
+		dpkg -i libgcrypt11_1.5.0-5+deb7u5_amd64.deb
+		dpkg -i Brackets.Release.1.9.64-bit.deb
+		rm ~/Downloads/*
+
+	fi
 
 #== Sublime Text
-	cd ~/Downloads/
-	sudo wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
-	sudo dpkg -i *
-	subl &
-	rm ~/Downloads/*
+	echo ""
+	echo "Install SUBLIME TEXT? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads/
+		wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
+		dpkg -i *
+		subl &
+		rm ~/Downloads/*
+
+	fi
 
 #== Telegram
-	cd ~/Downloads
-	sudo wget https://telegram.org/dl/desktop/linux
-	sudo tar -xf *
-	sudo mv Telegram/ /opt/
-	/opt/Telegram/Telegram &
+	echo ""
+	echo "Install TELEGRAM? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads
+		wget https://telegram.org/dl/desktop/linux
+		tar -xf *
+		mv Telegram/ /opt/
+		/opt/Telegram/Telegram &
+
+	fi
 
 #== Numix Circle
-	cd ~/Downloads
-	sudo git clone https://github.com/numixproject/numix-icon-theme-circle
-	sudo mv numix-icon-theme-circle/Numix-Circle /usr/share/icons/
-	rm -rf ~/Downloads/numix-icon-theme-circle
+	echo ""
+	echo "Install NUMIX CIRCLE? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads
+		git clone https://github.com/numixproject/numix-icon-theme-circle
+		mv numix-icon-theme-circle/Numix-Circle /usr/share/icons/
+		rm -rf ~/Downloads/numix-icon-theme-circle
+
+	fi
 
 #== Spotify
-	sudo apt-get update
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
-	sudo apt-get update
-	sudo apt-get install spotify-client
-	spotify &
+	echo ""
+	echo "Install SPOTIFY? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		apt-get update
+		apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+		echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
+		echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
+		apt-get update
+		apt-get install spotify-client
+		spotify &
+
+	fi
 
 #== Alarm Clock
-	sudo apt-get update
-	sudo apt-get install alarm-clock-applet wmctrl xautomation
-	alarm-clock-applet &
+	echo ""
+	echo "Install ALARM CLOCK? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		apt-get update
+		apt-get install alarm-clock-applet wmctrl xautomation
+		alarm-clock-applet &
+
+	fi
 
 #== Spotify Rise
-	cd ~/Downloads
-	sudo chmod 755 spotify-rise
-	sudo wget -O spotify-rise https://raw.githubusercontent.com/gcushen/spotify-rise/master/spotify-rise
-	mv spotify-rise /usr/bin/
+	echo ""
+	echo "Install SPOTIFY-RISE? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads
+		chmod 755 spotify-rise
+		wget -O spotify-rise https://raw.githubusercontent.com/gcushen/spotify-rise/master/spotify-rise
+		mv spotify-rise /usr/bin/
+
+	fi
 
 #== OpenGL 5.4
-	sudo apt-get update
-	sudo apt-get install libgl1-mesa-dev
-	sudo apt-get install libglew1.5-dev freeglut3-dev libglm-dev
-	glxinfo | grep OpenGL
+	echo ""
+	echo "Install OPENGL 5.4? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		apt-get update
+		apt-get install libgl1-mesa-dev
+		apt-get install libglew1.5-dev freeglut3-dev libglm-dev
+		glxinfo | grep OpenGL
+
+	fi
 
 #== Enable sound
-	apt-get update
-	apt-get install libfftw3-single3
-	systemctl --user enable pulseaudio
+	echo ""
+	echo "Install PULSEAUDIO SOUND? (Y/n) "
+	read key
 
-#== Tor
-	cd ~/Downloads
-	wget https://www.torproject.org/dist/torbrowser/6.0.7/tor-browser-linux64-6.0.7_en-US.tar.xz
-	tar -xvJf tor-browser-linux64-6.0.7_en_US.tar.xz
-	sudo mv tor-browser_en_US /opt/
-	/opt/tor-browser_en_US/start-tor-browser.desktop
-}
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		apt-get update
+		apt-get install libfftw3-single3
+		systemctl --user enable pulseaudio
+
+	fi
+
+#== Tor Browser
+	echo ""
+	echo "Install TOR BROWSER? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		cd ~/Downloads
+		wget https://www.torproject.org/dist/torbrowser/6.0.7/tor-browser-linux64-6.0.7_en-US.tar.xz
+		tar -xvJf tor-browser-linux64-6.0.7_en_US.tar.xz
+		mv tor-browser_en_US /opt/
+		/opt/tor-browser_en_US/start-tor-browser.desktop
+
+	fi
+
+#== Reboot
+	clear
+	figlet "EASY APP INSTALL"
+	echo ""
+	echo "Installation finished. Would you like to reboot now? (Y/n) "
+	read key
+
+	if [[ $key != "n" && $key != "N" ]]; then
+		
+		reboot
+
+	fi
+fi
