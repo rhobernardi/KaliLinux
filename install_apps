@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt-get -q=2 update
 apt-get -q=2 install figlet
 clear
 figlet "EASY APP INSTALL"
@@ -28,7 +29,9 @@ else
 		FLAG=1
 	fi
 
+
 #== Backgrouds
+	
 	if [[ $FLAG == 0 ]]; then
 		
 		echo ""
@@ -48,7 +51,9 @@ else
 
 	fi
 
+
 #== Prompt Style
+	
 	if [[ $FLAG == 0 ]]; then
 		
 		echo ""
@@ -65,6 +70,7 @@ else
 		echo ""
 
 	fi
+
 
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
@@ -88,6 +94,7 @@ else
 
 	fi
 
+
 #== Enable Bluetooth
 	
 	if [[ $FLAG == 0 ]]; then
@@ -105,6 +112,7 @@ else
 		systemctl start bluetooth.service
 
 	fi
+
 
 #== PPA Repository
 	
@@ -127,6 +135,7 @@ else
 
 	fi
 
+
 #== Terminator
 	
 	if [[ $FLAG == 0 ]]; then
@@ -146,6 +155,7 @@ else
 
 	fi
 
+
 #== Bridge Utils
 	
 	if [[ $FLAG == 0 ]]; then
@@ -161,6 +171,7 @@ else
 		apt-get install bridge-utils
 
 	fi
+
 
 #== Brackets
 	
@@ -183,6 +194,7 @@ else
 
 	fi
 
+
 #== Sublime Text
 	
 	if [[ $FLAG == 0 ]]; then
@@ -202,6 +214,7 @@ else
 		rm ~/Downloads/*
 
 	fi
+
 
 #== Telegram
 	
@@ -223,6 +236,7 @@ else
 
 	fi
 
+
 #== Numix Circle
 	
 	if [[ $FLAG == 0 ]]; then
@@ -242,6 +256,7 @@ else
 
 	fi
 
+
 #== Spotify
 	
 	if [[ $FLAG == 0 ]]; then
@@ -256,13 +271,14 @@ else
 		
 		apt-get update
 		apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-		echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
+		echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 		echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
 		apt-get update
 		apt-get install spotify-client
 		spotify &
 
 	fi
+
 
 #== Alarm Clock
 	
@@ -282,6 +298,7 @@ else
 
 	fi
 
+
 #== Spotify Rise
 	
 	if [[ $FLAG == 0 ]]; then
@@ -295,11 +312,12 @@ else
 	if [[ $key != "n" && $key != "N" ]]; then
 		
 		cd ~/Downloads
-		chmod 755 spotify-rise
 		wget -O spotify-rise https://raw.githubusercontent.com/gcushen/spotify-rise/master/spotify-rise
+		chmod 755 spotify-rise
 		mv spotify-rise /usr/bin/
 
 	fi
+
 
 #== OpenGL 5.4
 	
@@ -320,6 +338,7 @@ else
 
 	fi
 
+
 #== Enable sound
 	
 	if [[ $FLAG == 0 ]]; then
@@ -337,6 +356,7 @@ else
 		systemctl --user enable pulseaudio
 
 	fi
+
 
 #== Tor Browser
 	
@@ -358,7 +378,9 @@ else
 
 	fi
 
+
 #== Reboot
+	
 	clear
 	figlet "EASY APP INSTALL"
 	echo ""
