@@ -91,6 +91,9 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias shn='shutdown -h now'
+alias network-reset='service networking restart && service network-manager restart'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
