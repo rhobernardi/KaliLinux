@@ -1,7 +1,10 @@
 #!/bin/bash
 
+clear
+echo "Initializing..."
 apt-get -q=2 update
 apt-get -q=2 install figlet
+echo "Starting..."
 clear
 figlet "EASY APP INSTALL"
 echo ""
@@ -35,7 +38,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install BACKGROUNDS? (Y/n) "
+		echo "Install BACKGROUNDS? [Y/n] "
 		read key
 
 	fi
@@ -57,7 +60,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Apply PROMPT STYLE? (Y/n) "
+		echo "Apply PROMPT STYLE? [Y/n] "
 		read key
 
 	fi
@@ -72,13 +75,31 @@ else
 	fi
 
 
+#== Show IP - GNOME Extension
+
+	if [[ $FLAG == 0 ]]; then
+
+		echo ""
+		echo "Install GNOME Extension SHOW IP? [Y/n] "
+		read key
+
+	fi
+
+	if [[ $key != "n" && $key != "N" ]]; then
+
+		git clone https://github.com/sgaraud/gnome-extension-show-ip.git \
+		~/.local/share/gnome-shell/extensions/show-ip@sgaraud.github.com	
+
+	fi
+
+
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
 
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install CATALYST AMD RADEON HD 7730M? (Y/n) "
+		echo "Install CATALYST AMD RADEON HD 7730M? [Y/n] "
 		read key
 
 	fi
@@ -100,7 +121,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Enable BLUETOOTH? (Y/n) "
+		echo "Enable BLUETOOTH? [Y/n] "
 		read key
 
 	fi
@@ -119,7 +140,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install PPA REPOSITORY? (Y/n) "
+		echo "Install PPA REPOSITORY? [Y/n] "
 		read key
 
 	fi
@@ -141,7 +162,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install TERMINATOR? (Y/n) "
+		echo "Install TERMINATOR? [Y/n] "
 		read key
 
 	fi
@@ -161,7 +182,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install BRIDGE UTILS? (Y/n) "
+		echo "Install BRIDGE UTILS? [Y/n] "
 		read key
 
 	fi
@@ -178,7 +199,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install BRACKETS? (Y/n) "
+		echo "Install BRACKETS? [Y/n] "
 		read key
 
 	fi
@@ -200,7 +221,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install SUBLIME TEXT? (Y/n) "
+		echo "Install SUBLIME TEXT? [Y/n] "
 		read key
 
 	fi
@@ -221,7 +242,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install TELEGRAM? (Y/n) "
+		echo "Install TELEGRAM? [Y/n] "
 		read key
 
 	fi
@@ -242,7 +263,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install NUMIX CIRCLE? (Y/n) "
+		echo "Install NUMIX CIRCLE? [Y/n] "
 		read key
 
 	fi
@@ -262,7 +283,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install SPOTIFY? (Y/n) "
+		echo "Install SPOTIFY? [Y/n] "
 		read key
 
 	fi
@@ -285,7 +306,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install ALARM CLOCK? (Y/n) "
+		echo "Install ALARM CLOCK? [Y/n] "
 		read key
 
 	fi
@@ -304,7 +325,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install SPOTIFY-RISE? (Y/n) "
+		echo "Install SPOTIFY-RISE? [Y/n] "
 		read key
 
 	fi
@@ -324,7 +345,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install OPENGL 5.4? (Y/n) "
+		echo "Install OPENGL 5.4? [Y/n] "
 		read key
 
 	fi
@@ -344,7 +365,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install PULSEAUDIO SOUND? (Y/n) "
+		echo "Install PULSEAUDIO SOUND? [Y/n] "
 		read key
 
 	fi
@@ -363,7 +384,7 @@ else
 	if [[ $FLAG == 0 ]]; then
 
 		echo ""
-		echo "Install TOR BROWSER? (Y/n) "
+		echo "Install TOR BROWSER? [Y/n] "
 		read key
 
 	fi
@@ -384,7 +405,7 @@ else
 	clear
 	figlet "EASY APP INSTALL"
 	echo ""
-	echo "Installation finished. Would you like to reboot now? (Y/n) "
+	echo "Installation finished. Would you like to reboot now? [Y/n] "
 	read key
 
 	if [[ $key != "n" && $key != "N" ]]; then
