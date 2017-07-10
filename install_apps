@@ -88,7 +88,7 @@ else
 	if [[ $key != "n" && $key != "N" ]]; then
 
 		git clone https://github.com/sgaraud/gnome-extension-show-ip.git \
-		~/.local/share/gnome-shell/extensions/show-ip@sgaraud.github.com	
+		~/.local/share/gnome-shell/extensions/show-ip@sgaraud.github.com
 
 	fi
 
