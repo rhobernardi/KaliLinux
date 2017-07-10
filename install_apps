@@ -96,25 +96,25 @@ else
 
 #== Catalyst AMD Radeon HD 7730M
 # tutorial link => http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
-
-	if [[ $FLAG == 0 ]]; then
-
-		echo ""
-		echo "Install CATALYST AMD RADEON HD 7730M? [Y/n] "
-		read key
-
-	fi
-
-	if [[ $key != "n" && $key != "N" ]]; then
-
-		cd /tmp
-		wget https://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.10-414273.tar.xz
-		tar -Jxvf amdgpu-pro-17.10-414273.tar.xz
-		cd amdgpu-pro-17.10-414273
-		./amdgpu-pro-install -y
-		usermod -a -G video root
-
-	fi
+#
+#	if [[ $FLAG == 0 ]]; then
+#
+#		echo ""
+#		echo "Install CATALYST AMD RADEON HD 7730M? [Y/n] "
+#		read key
+#
+#	fi
+#
+#	if [[ $key != "n" && $key != "N" ]]; then
+#
+#		cd /tmp
+#		wget https://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.10-414273.tar.xz
+#		tar -Jxvf amdgpu-pro-17.10-414273.tar.xz
+#		cd amdgpu-pro-17.10-414273
+#		./amdgpu-pro-install -y
+#		usermod -a -G video root
+#
+#	fi
 
 
 #== Enable Bluetooth
@@ -342,23 +342,23 @@ else
 
 
 #== OpenGL 5.4
-
-	if [[ $FLAG == 0 ]]; then
-
-		echo ""
-		echo "Install OPENGL 5.4? [Y/n] "
-		read key
-
-	fi
-
-	if [[ $key != "n" && $key != "N" ]]; then
-
-		apt-get update
-		apt-get install libgl1-mesa-dev
-		apt-get install libglew1.5-dev freeglut3-dev libglm-dev
-		glxinfo | grep OpenGL
-
-	fi
+#
+#	if [[ $FLAG == 0 ]]; then
+#
+#		echo ""
+#		echo "Install OPENGL 5.4? [Y/n] "
+#		read key
+#
+#	fi
+#
+#	if [[ $key != "n" && $key != "N" ]]; then
+#
+#		apt-get update
+#		apt-get install libgl1-mesa-dev
+#		apt-get install libglew1.5-dev freeglut3-dev libglm-dev
+#		glxinfo | grep OpenGL
+#
+#	fi
 
 
 #== Enable sound
